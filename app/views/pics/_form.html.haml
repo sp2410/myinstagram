@@ -1,16 +1,10 @@
-<div class="container">
-  <div id="contact-area">
-		<%= simple_form_for @pic, html: {multipart: true} do |f| %>
-		<p>
-			<%= f.label :title %>
-			<%= f.text_field :title %>
-		</p>		    
-		<p>		    
-			<%= f.label :description %>
-		    <%= f.text_area :description %>
-			<%= f.submit class: "create-button" %>
-
-		</p>
-	</div>
-</div>
-
+.container
+  #contact-area
+    = simple_form_for @pic, html: {multipart: true} do |f|
+      %p
+        = f.label :title
+        = f.text_field :title
+      %p
+        = f.label :description
+        = f.text_area :description
+        = f.submit class: "create-button"
