@@ -1,12 +1,28 @@
 !!! 5
 %html
-%head
-	%title Myinstagram
-	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-	= javascript_include_tag 'application', 'data-turbolinks-track' => true 
-
-%body
-	-flash.each do |name, msg|
-		= content_tag :div, msg, class: "alert alert-info"
-	= yield
-
+%html
+  %head
+    %title Myinstagram
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  %body
+    %nav.navbar.navbar-inverse
+      .container
+        .navbar-brand= link_to "MyInstagram", root_path
+        - if current_user
+          %ul.nav.navbar-nav.navbar-left
+            %li
+              = link_to "Gram It!", new_pic_path
+            %li
+              = link_to "Settings", edit_user_registration_path
+            
+        - else
+          %ul.nav.navbar-nav.navbar-left
+            %li
+              = link_to "Join", new_user_registration_path
+            %li
+              = link_to "Log In", new_user_session_path
+    .container
+      - flash.each do |name, msg|
+        = content_tag :div, msg, class: "alert alert-info"
+      = yield
