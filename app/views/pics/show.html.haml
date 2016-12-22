@@ -1,15 +1,18 @@
-= csrf_meta_tag
-
+= image_tag @pic.image.url
 %h1
- #{@pic.title}
+#{@pic.title}
 %p
- #{@pic.description}
-
+#{@pic.description}
 %p
- #{@pic.user.email}
-
+#{@pic.user.email}
 = link_to "Back", root_path
-
 = link_to "Edit", edit_pic_path
-
 = link_to "Delete", pic_path, method: :delete, data: {confirm: "Are you sure?"}
+
+
+
+
+
+
+
+

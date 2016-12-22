@@ -1,10 +1,12 @@
 .container
   #contact-area
     = simple_form_for @pic, html: {multipart: true} do |f|
-      %p
+      .form-group
         = f.label :title
         = f.text_field :title
-      %p
+
+      .form-group        
         = f.label :description
-        = f.text_area :description
+        = f.text_area :description        
+        = f.input :image
         = f.submit class: "create-button"
